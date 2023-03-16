@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+source /home/dschonholtz/anaconda3/etc/profile.d/conda.sh
+conda activate rt
+python "$@"

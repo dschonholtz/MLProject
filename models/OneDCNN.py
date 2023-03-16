@@ -7,6 +7,7 @@ Input:1x1024
 Sigmoid focal cross entropy
 """
 import torch.nn as nn
+import torch
 
 
 class OneDCNN(nn.Module):
@@ -86,3 +87,26 @@ class OneDCNN(nn.Module):
         return x
 
 
+def main():
+
+    # Create a model instance
+    # model = CustomTransformerModel(num_layers, input_size, d_model, nhead, dim_feedforward, dropout, num_classes)
+
+    model = OneDCNN()
+    input_tensor = torch.rand(32, 1, 1024)  # (batch size, sequence length, d_model)
+    output = model(input_tensor)
+    print(output.shape)  # Should output (32, num_classes)
+
+    # use a learning rate finder to find a good learning rate
+
+
+    # print model info:
+    print(model)
+
+    # Calculate the total number of parameters
+    total_parameters = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    print(total_parameters)
+
+
+if __name__ == '__main__':
+    main()

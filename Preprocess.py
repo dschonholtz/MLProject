@@ -62,9 +62,9 @@ class H5Dataset(Dataset):
 
     def __getitem__(self, index):
         # Get the h5 file and data at the given index
-        # Convert the data and label to torch tensors
-        data = torch.from_numpy(self.x[index][...])
-        label = torch.tensor(self.y[index])
+        # Convert the data and label to torch tensors of float32
+        data = torch.from_numpy(self.x[index][...]).float()
+        label = torch.tensor(self.y[index], dtype=torch.float32)
         # Return a tuple of data and label
         return data, label
 
